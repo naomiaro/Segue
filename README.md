@@ -112,6 +112,7 @@ Planned, and subject to change:
 - **Editor:** [dawcore](https://github.com/naomiaro/waveform-playlist) web components (`@dawcore/components`, `@dawcore/transport`) for multitrack display, editing, recording and playback.
 - **App:** Vite, TypeScript and Lit.
 - **Analysis:** [Beat This!](https://github.com/CPJKU/beat_this) for beats and downbeats, and [Demucs](https://github.com/adefossez/demucs) to find where vocals enter.
+- **Limiting:** a look-ahead limiter on the rendered mix holds sample peaks at the target's ceiling.
 - **Loudness:** measured in the browser to ITU-R BS.1770, and checked against the EBU Tech 3341 reference cases.
 - **Rendering:** dawcore's offline export in the browser for a single break. ffmpeg on a server once whole hours need rendering.
 - **Speech:** engine-agnostic. Candidate models are still being evaluated, including their licences.
