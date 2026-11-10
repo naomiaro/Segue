@@ -1,0 +1,115 @@
+:root {
+  color-scheme: dark;
+  --bg: #14161a;
+  --panel: #1c1f25;
+  --text: #e6e2da;
+  --muted: #9a968d;
+  --accent: #e0a458;
+  --danger: #d9534f;
+  --border: #2c3038;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.site-header,
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.site-header p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+segue-break {
+  display: block;
+}
+
+.inputs,
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.inputs {
+  margin-bottom: 1rem;
+}
+
+.controls {
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.inputs label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+daw-editor {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  --daw-wave-color: var(--accent);
+  --daw-background: var(--bg);
+  --daw-track-background: var(--panel);
+  --daw-ruler-color: var(--muted);
+  --daw-ruler-background: var(--bg);
+  --daw-playhead-color: var(--danger);
+  --daw-min-height: 340px;
+}
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.record {
+  border-color: var(--danger);
+}
+
+button.record.recording {
+  background: var(--danger);
+  color: #fff;
+}
+
+.message {
+  margin: 1rem 0 0;
+  color: var(--muted);
+}
