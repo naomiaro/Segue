@@ -1,0 +1,61 @@
+name: Station feedback
+description: Tell us how voice links get made at your station today
+title: "Station feedback: "
+labels: ["station-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Segue is at the planning stage. Answers here decide what gets built first.
+        Short answers are fine, and you can skip anything that doesn't apply.
+  - type: input
+    id: station
+    attributes:
+      label: What kind of station is it?
+      description: For example community FM, campus, internet-only. Naming the station is optional.
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: What do you do there?
+      placeholder: Presenter, producer, programme director, engineer, volunteer...
+  - type: input
+    id: playout
+    attributes:
+      label: What playout or automation system do you use?
+      placeholder: AzuraCast, LibreTime, Rivendell, kast, StationPlaylist, something else
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How do links between songs get recorded today?
+      description: Who records them, where, with what software, and how they reach the playout system. "They don't" is a useful answer too.
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: What gets in the way?
+      description: The slow, fiddly or unreliable parts.
+    validations:
+      required: true
+  - type: dropdown
+    id: synthetic
+    attributes:
+      label: Would your station use synthetic voices for unstaffed hours?
+      options:
+        - "Yes"
+        - "Maybe, with clear labelling"
+        - "No"
+        - "Not sure"
+  - type: textarea
+    id: output
+    attributes:
+      label: What would Segue need to hand to your playout system?
+      description: For example a rendered audio file, a voice clip with cue points, or a whole hour as one file.
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?

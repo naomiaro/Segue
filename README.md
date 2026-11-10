@@ -123,8 +123,8 @@ Segue is a production tool. Stations are responsible for holding the licences ne
 
 ## Licence
 
-Proposed: AGPL-3.0. Not final.
+[AGPL-3.0](LICENSE).
 
 ## Get involved
 
-If you run, programme or present at a station, open an issue and describe how links get recorded today and what gets in the way. That will shape the order of the roadmap more than anything else.
+If you run, programme or present at a station, open a [station feedback issue](../../issues/new?template=station-feedback.yml) and describe how links get recorded today and what gets in the way. That will shape the order of the roadmap more than anything else.
