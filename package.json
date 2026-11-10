@@ -1,0 +1,26 @@
+{
+  "name": "segue",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Browser-based voice tracking for community, campus and internet radio",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dawcore/components": "^0.0.38",
+    "@dawcore/transport": "^0.0.15",
+    "@waveform-playlist/core": "^12.6.2",
+    "@waveform-playlist/engine": "^13.6.1",
+    "@waveform-playlist/worklets": "^13.0.0",
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
+  }
+}

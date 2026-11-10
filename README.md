@@ -4,7 +4,7 @@
 
 Segue lets a presenter record or type the links between songs from a browser, and turns them into finished audio that a station's existing playout system can play.
 
-**Status: planning.** Nothing here works yet. This README describes what the project intends to build and in what order. Feedback from people who run or volunteer at stations is the most useful contribution right now.
+**Status: early prototype.** One break can be loaded, recorded and rendered in the browser. Everything else in this README describes what the project intends to build and in what order. Feedback from people who run or volunteer at stations is the most useful contribution right now.
 
 ## Why
 
@@ -59,10 +59,10 @@ Segue hands over audio and stops there. Depending on the playout system:
 
 ### 1. One break
 
-- [ ] Load two audio files and show the join
-- [ ] Record a voice link over the join in the browser
+- [x] Load two audio files and show the join
+- [x] Record a voice link over the join in the browser
 - [ ] Drag to adjust timing, with automatic ducking
-- [ ] Render the transition to a single file
+- [x] Render the transition to a single file
 
 ### 2. Typed breaks
 
@@ -109,13 +109,27 @@ These are intentions. None has been checked against the target system's API yet.
 
 Planned, and subject to change:
 
-- **Editor:** [waveform-playlist](https://github.com/naomiaro/waveform-playlist) for multitrack display, editing and recording.
+- **Editor:** [dawcore](https://github.com/naomiaro/waveform-playlist) web components (`@dawcore/components`, `@dawcore/transport`) for multitrack display, editing, recording and playback.
+- **App:** Vite, TypeScript and Lit.
 - **Analysis:** [Beat This!](https://github.com/CPJKU/beat_this) for beats and downbeats, and [Demucs](https://github.com/adefossez/demucs) to find where vocals enter.
-- **Rendering:** ffmpeg.
+- **Rendering:** dawcore's offline export in the browser for a single break. ffmpeg on a server once whole hours need rendering.
 - **Speech:** engine-agnostic. Candidate models are still being evaluated, including their licences.
 - **Hosted version:** Cloudflare Workers, R2, Durable Objects and Queues, with billing through Polar.
 
 The core (edit, analyse, render) should run from a single Docker Compose file with no Cloudflare account. How much of the team layer can be self-hosted the same way is an open question.
+
+## Development
+
+Requires Node.js 20 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Open the address Vite prints, choose an outgoing song and a next song, then record a link over the join. Use headphones, so the music doesn't leak into the microphone.
+
+`npm run build` type-checks and builds to `dist/`.
 
 ## Music licensing
 
