@@ -113,3 +113,47 @@ button.record.recording {
   margin: 1rem 0 0;
   color: var(--muted);
 }
+
+select,
+input[type='number'] {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.inputs label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.levels {
+  flex-basis: 100%;
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.levels div {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.levels dt {
+  min-width: 12rem;
+  color: var(--muted);
+}
+
+.levels dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.levels .note {
+  color: var(--muted);
+}
