@@ -75,9 +75,9 @@ Segue hands over audio and stops there. Depending on the playout system:
 ### 3. The hour
 
 - [ ] Import a running order (M3U, or upload tracks)
-- [ ] Loudness normalisation on import
+- [x] Loudness normalisation on import, against a chosen target (EBU R 128, ATSC A/85, AES streaming, Apple Podcasts or custom)
 - [ ] Automatic marker suggestions (beats, vocal entry)
-- [ ] Voice processing chain
+- [x] Voice processing chain: high-pass, compressor, levelling to the target, limiter
 - [ ] Running time for the hour, over or under
 - [ ] Export a full hour with a track list
 
@@ -112,6 +112,7 @@ Planned, and subject to change:
 - **Editor:** [dawcore](https://github.com/naomiaro/waveform-playlist) web components (`@dawcore/components`, `@dawcore/transport`) for multitrack display, editing, recording and playback.
 - **App:** Vite, TypeScript and Lit.
 - **Analysis:** [Beat This!](https://github.com/CPJKU/beat_this) for beats and downbeats, and [Demucs](https://github.com/adefossez/demucs) to find where vocals enter.
+- **Loudness:** measured in the browser to ITU-R BS.1770, and checked against the EBU Tech 3341 reference cases.
 - **Rendering:** dawcore's offline export in the browser for a single break. ffmpeg on a server once whole hours need rendering.
 - **Speech:** engine-agnostic. Candidate models are still being evaluated, including their licences.
 - **Hosted version:** Cloudflare Workers, R2, Durable Objects and Queues, with billing through Polar.
@@ -129,7 +130,7 @@ npm run dev
 
 Open the address Vite prints, choose an outgoing song and a next song, then record a link over the join. Use headphones, so the music doesn't leak into the microphone.
 
-`npm run build` type-checks and builds to `dist/`.
+`npm run build` type-checks and builds to `dist/`. `npm test` runs the unit tests.
 
 ## Music licensing
 
