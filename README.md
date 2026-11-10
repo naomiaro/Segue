@@ -120,7 +120,7 @@ The core (edit, analyse, render) should run from a single Docker Compose file wi
 
 ## Development
 
-Requires Node.js 20 or newer.
+Requires Node.js 20.19 or newer (22.12 or newer on the 22 line).
 
 ```bash
 npm install
