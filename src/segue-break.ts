@@ -7,6 +7,7 @@ import type {
   DawTrackElement,
 } from '@dawcore/components';
 import { NativePlayoutAdapter } from '@dawcore/transport';
+import { limit } from './limiter';
 import { dbToGain, formatDb, formatLufs, measureLoudness } from './loudness';
 import {
   CUSTOM_TARGET_ID,
@@ -357,6 +358,8 @@ export class SegueBreak extends LitElement {
     this.message = 'Rendering…';
     try {
       const buffer = await this.editor.exportAudio();
+      // A final limiter on the whole mix, so the file never exceeds the target's ceiling.
+      const limiter = limit(buffer, { ceilingDb: this.target.peakCeiling });
       const measured = measureLoudness(buffer);
       const url = URL.createObjectURL(encodeWav(buffer));
       const link = document.createElement('a');
@@ -367,8 +370,8 @@ export class SegueBreak extends LitElement {
 
       const summary = `Transition rendered: ${formatLufs(measured.integrated)}, peak ${formatDb(measured.samplePeak)}.`;
       this.message =
-        measured.samplePeak > this.target.peakCeiling
-          ? `${summary} The peak is above the ${this.target.peakCeiling} dBFS ceiling for this target.`
+        limiter.maxReductionDb > 0.05
+          ? `${summary} The limiter held peaks back by up to ${limiter.maxReductionDb.toFixed(1)} dB.`
           : summary;
     } catch (error) {
       this.message = `Could not render the transition: ${describe(error)}`;
